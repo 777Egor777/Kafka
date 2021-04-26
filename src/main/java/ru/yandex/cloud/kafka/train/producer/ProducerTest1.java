@@ -1,9 +1,21 @@
-import org.apache.kafka.clients.producer.*;
+package ru.yandex.cloud.kafka.train.producer;
 
-import java.util.Date;
+import org.apache.kafka.clients.producer.KafkaProducer;
+import org.apache.kafka.clients.producer.ProducerRecord;
+
 import java.util.Properties;
 
-public class Producer {
+
+/**
+ * Class for overview Producer class.
+ * Using hardcoded properties
+ * and Kafka on local machine.
+ *
+ * @since 23.04.2021
+ * @author Geraskin Egor(geraskin@yandex-team.ru)
+ */
+public class ProducerTest1 {
+
     public static void main(String[] args) {
         System.out.println("Let's get started with Kafka API");
 
@@ -20,10 +32,10 @@ public class Producer {
         int numOfRecords = 100;
         String topic = "strings";
 
-        try(KafkaProducer<Integer ,String> producer = new KafkaProducer<>(props)) {
+        try (KafkaProducer<Integer, String> producer = new KafkaProducer<>(props)) {
 
             for (int key = 0; key < numOfRecords; key++) {
-                String message = String.format("Producer %s send message %s at time %s", clientId, key, System.currentTimeMillis());
+                String message = String.format("ru.yandex.cloud.kafka.train.producer.Producer %s send message %s at time %s", clientId, key, System.currentTimeMillis());
                 ProducerRecord<Integer, String> record = new ProducerRecord<>(topic, key, message);
                 producer.send(record);
                 System.out.println("Message " + message + " was just produced");
