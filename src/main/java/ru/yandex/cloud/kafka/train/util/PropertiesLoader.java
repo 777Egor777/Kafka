@@ -20,7 +20,7 @@ public class PropertiesLoader {
 
     public static Properties load(String resourceFileName) {
         Properties result = new Properties();
-        try (InputStream in = PropertiesLoader.class.getResourceAsStream(resourceFileName)) {
+        try (InputStream in = PropertiesLoader.class.getClassLoader().getResourceAsStream(resourceFileName)) {
             result.load(in);
         } catch (IOException e) {
             LOG.error("Exception when loading properties from resource file", e);

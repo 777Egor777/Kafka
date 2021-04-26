@@ -12,8 +12,7 @@ import java.util.Properties;
  * @since 4/25/21
  */
 public class ProducerUtility {
-    public static <T1, T2>  Producer<T1, T2> makeProducerFromProperties(String propsFileName) {
-        Properties props = PropertiesLoader.load(propsFileName);
+    public static <T1, T2>  Producer<T1, T2> makeProducerFromProperties(Properties props) {
         return new KafkaProducer<>(props);
     }
 }
