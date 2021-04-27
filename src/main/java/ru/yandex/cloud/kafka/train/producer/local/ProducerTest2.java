@@ -1,4 +1,4 @@
-package ru.yandex.cloud.kafka.train.producer;
+package ru.yandex.cloud.kafka.train.producer.local;
 
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerRecord;
