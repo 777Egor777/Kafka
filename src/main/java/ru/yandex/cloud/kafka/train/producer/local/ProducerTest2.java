@@ -22,11 +22,11 @@ import java.util.Properties;
 public class ProducerTest2 {
     private final static String PROPERTIES_FILE_NAME = "kafka.producer.local.properties";
     private final static Properties PROPS = PropertiesLoader.load(PROPERTIES_FILE_NAME);
-    private final static int NUM_OF_RECORDS = 100;
+    private final static int NUM_OF_RECORDS = 25;
 
     public static void main(String[] args) {
-        Producer<Integer, String> producer = ProducerUtility.makeProducerFromProperties(PROPS);
         String topic = PROPS.getProperty("topic");
+        Producer<Integer, String> producer = ProducerUtility.makeProducerFromProperties(PROPS);
         for (int i = 1; i <= NUM_OF_RECORDS; ++i) {
             ProducerRecord<Integer, String> record = makeRecord(topic, i, "" + i);
             sendMessage(producer, record);
