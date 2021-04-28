@@ -1,4 +1,4 @@
-package ru.yandex.cloud.kafka.train.consumer;
+package ru.yandex.cloud.kafka.train.consumer.local;
 
 import org.apache.kafka.clients.consumer.*;
 import org.slf4j.*;
